@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/v1")
 public class AppController {
 
     private ResponseEntity<String> responseEntity;
@@ -18,7 +17,17 @@ public class AppController {
     @GetMapping("/books")
     public ResponseEntity<String> getAllBooks() {
         try {
-            responseEntity = new ResponseEntity<>("Hello this is the update book return", HttpStatus.OK);
+            responseEntity = new ResponseEntity<>("Hello this is the update book return again", HttpStatus.OK);
+        } catch (Exception e) {
+            responseEntity = new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return responseEntity;
+    }
+
+    @GetMapping("/test")
+    public ResponseEntity<String> test() {
+        try {
+            responseEntity = new ResponseEntity<>("Test App", HttpStatus.OK);
         } catch (Exception e) {
             responseEntity = new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
