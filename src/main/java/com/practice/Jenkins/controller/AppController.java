@@ -27,7 +27,7 @@ public class AppController {
     @GetMapping("/test")
     public ResponseEntity<String> test() {
         try {
-            responseEntity = new ResponseEntity<>("Test App called again", HttpStatus.OK);
+            responseEntity = new ResponseEntity<>("We are calling test", HttpStatus.OK);
         } catch (Exception e) {
             responseEntity = new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
